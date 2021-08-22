@@ -16,10 +16,12 @@ namespace Random_Pick_with_Weight_OR_Uber_Pool
         }
     }
 
+    // time complexity commented on below.
     public class Solution
     {
         int[] sums;
         int sum = 0;
+        // time complexity = O(N)
         public Solution(int[] w)
         {
             sums = new int[w.Length];
@@ -30,10 +32,12 @@ namespace Random_Pick_with_Weight_OR_Uber_Pool
             }
         }
 
+        // time complexity = O(logN)
         public int PickIndex()
         {
             Random rand = new Random();
             double target = sum * rand.NextDouble();
+            // perform binary search
             int low = 0;
             int high = sums.Length - 1;
             while (low < high)
